@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title>Calculator</title>
+		<script language="JavaScript" type="text/javascript">
+			var num1 = 0;
+			var num2 = 0;
+			var step = 1;
+			var operation;
+			function input(num){
+				if (step == 1){
+					num1 = (num1 * 10) + num;
+					document.getElementById("output").innerHTML=num1;
+				}
+				if (step == 2){
+					num2 = (num2 * 10) + num;
+					document.getElementById("output").innerHTML=num2;
+				}
+				// alert("input");
+			}
+
+			function add(){
+				step = 2;
+				operation = "add";
+			}
+
+			function equal(){
+				if ((operation == "add") && (step == 2)){
+					document.getElementById("output").innerHTML=num1+num2;
+					clear();
+				}
+			}
+
+			function clear(){
+				num1 = 0;
+				num2 = 0;
+				step = 1;
+			}
+		</script>
+
+	</head>
+
+	<body>
+	<form>
+	<input type="button" value="1" onclick="input(1);" />
+	<input type="button" value="2" onclick="input(2);" />
+	<input type="button" value="3" onclick="input(3);" /></br>
+	<input type="button" value="4" onclick="input(4);" />
+	<input type="button" value="5" onclick="input(5);" />
+	<input type="button" value="6" onclick="input(6);" /></br>
+	<input type="button" value="7" onclick="input(7);" />
+	<input type="button" value="8" onclick="input(8);" />
+	<input type="button" value="9" onclick="input(9);" /></br>
+	<input type="button" value="0" onclick="input(0);" />
+	<input type="button" value="+" onclick="add();" />
+	<input type="button" value="=" onclick="equal();" />
+	<input type="button" value="CE" onclick="clear();" />
+	</form>
+	<div id="output"></div>
+	</body>
+</html>
